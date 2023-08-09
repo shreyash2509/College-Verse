@@ -1,0 +1,191 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Mulish', sans-serif;
+  /* overflow-x: hidden; */
+}
+
+
+/* Footer Section */
+
+
+
+
+
+
+/*notes*/
+
+.card_sub {
+  background: #EFF2FC;
+  border-radius: 26px;
+  width: 70vw;
+  height: 20vh;
+  margin-top: 30px;
+  transition: 0.3s;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  min-width: 0;
+  word-wrap: break-word;
+  border: 0px solid rgba(0, 0, 0, .125);
+  border-radius: 24px;
+  align-items: center;
+}
+
+
+.sub_dis {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.center_sub {
+  margin: 15vh 0 20vh 0;
+  align-items: center;
+  /* position: absolute; */
+  /* position: fixed; */
+  /* margin-top: 20%; */
+  flex-direction: column;
+}
+
+.img_sub {
+  display: flex;
+}
+
+
+.sub-img-top {
+  width: 120px;
+  position: absolute;
+  /* height: 80px; */
+  align-self: center;
+}
+
+
+.card-title_sub {
+  text-align: center;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 80px;
+}
+
+.card-body_sub {
+  display: flex;
+  flex: 1 1 auto;
+  padding: 1rem 11rem 1rem 2rem;
+  justify-content: space-between;
+}
+
+.blur {
+  box-shadow: 1rem 1rem 3rem #EFF2FC, -1rem -1rem -3rem #EFF2FC !important;
+}
+
+.rect49 {
+  display: flex;
+}
+
+.rect49 input {
+  height: 50%;
+  outline: 0;
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+  border-color: #ddd6d6;
+  padding: 25px;
+}
+
+.rect49 .right {
+  float: right;
+}
+
+.rect49 button {
+  float: right;
+  height: 70px;
+  width: 228px;
+  border-radius: 5px;
+}
+
+.flex {
+  display: block;
+  overflow: scroll;
+  overflow-y: hidden;
+}
+
+.box {
+  display: grid;
+  grid-template-areas: 
+  'img img name pp'
+  'checkbox checkbox checkbox checkbox'
+  'exams exams exams exams';
+  margin: 2%;
+  padding: 1%;
+  width: 35%;
+  height: 25%;
+  border-radius: 24px;
+  border: 1px solid #EFF2FC;
+}
+
+.ppbutton { 
+  background-color: #EFF2FC;
+  color: #0083FF;
+  padding: 5px 15px;
+  border-color: none;
+  outline: 0;
+  border: none;
+  border-radius: 5px;
+}
+
+.img {
+  grid-area: img;
+}
+
+.name {
+  grid-area: name;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.pp {
+  grid-area: pp;
+}
+
+.checkbox {
+  grid-area: checkbox;
+}
+
+.exams {
+  grid-area: exams;
+}
+
+
+.lg-img {
+  margin-top: 50px;
+}
+
+.dp-image {
+  margin: -150px 150px;
+  width: 300px;
+  height: 300px;
+}
+
+.header-2 {
+  display: inline;
+}
+
+
+
+
+
+
+.ow{
+  display: block;
+}
+.ow2{
+  display: none;
+}
+
+.nav-link{
+  cursor: pointer;
+}

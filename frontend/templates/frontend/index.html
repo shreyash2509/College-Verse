@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CollegeVerse</title>
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static '/assets/images/cvlogo.jpeg' %}">
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+
+    <!-- js -->
+    <script src="{% static '/js/main.js' %}"></script>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QSPRWC08J8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QSPRWC08J8');
+</script>
+
+<body style="overflow-x: hidden;">
+    <div class="main-container">
+
+        <!---------------- Navbar ------------------>
+        {% include "includes/navbar.html" %}
+
+
+
+
+
+
+        <!---------------- Home Page ---------------->
+
+        <div class="home-page-container">
+
+            <!-------------- CTA Section  -------------->
+            <div class="d-flex justify-content-around flex-nowrap cta-section">
+                <div class="cta-description">
+                    <div class="cta-heading">
+                        <p class="cta-line-1">The Best Place To
+                        <p class="cta-line-2">Take <span class="cta-blue">Guidance From</span></p>
+                        </p>
+                    </div>
+                    <div class="cta-text">
+                        <p>Confused about which college to choose??<br>
+                            You are at the perfect place to seek proper guidance and kickstart your college life. Take a
+                            Quick Tour of our platform and register yourself to get the Best-in-Class Counseling
+                            Services.</p>
+                    </div>
+                    {% if not request.user.is_authenticated %}
+                    <div class="cta-button">
+                        <button class="register-button" type="button" data-bs-toggle="modal"
+                            data-bs-target="#SignupModal">Register Now</button>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="cta-image">
+                    <img src="{% static '/assets/images/cta-img.png' %}" alt="">
+                </div>
+            </div>
+            <!--------------------- About Section ------------------>
+
+            <div class="about-section" id="about">
+                <div class="about-heading">
+                    <p class="about-aa">About <span class="service-blue">CollegeVerse</span></p>
+                </div>
+                <div class="about-description">
+                    <p class="about-desc-1">CollegeVerse - brought to you by Apni Academy is here to provide counseling
+                        services to all Engineering and Medical Aspirants. CollegeVerse has become a trademark and is
+                        the first choice of the students for counseling-related services due to the exceptional results
+                        and feedback from the previous batches.
+                        For Engineering, we provide counseling services for JEE (JoSAA), WBJEE, COMEDK, JAC Chandigarh,
+                        JAC Delhi, MHT-CET, and various other Government and Deemed Universities. For Medical Aspirants
+                        we have counseling services for NEET and admission to various other Foreign and Deemed
+                        Universities.</p>
+
+                    <p class="about-desc-2">Moreover, CollegeVerse is here to provide the most important services for
+                        students during the competitive exams. Like providing Last minute Revision Notes, DPP, Mind Map,
+                        Previous year Question Papers, etc. We want to provide the students with a proper examination
+                        environment, So we are also providing Mock Test feature for various examinations like JEE,
+                        COMEDK, WBJEE, etc</p>
+                </div>
+            </div>
+
+            {% comment %}
+            <!--------------------- Services Section -------------------> {% endcomment %}
+
+            <div class="services-section" id="services">
+                <div class="services-heading">
+                    <p class="services-head">What <span class="service-blue">Services</span> we Provide ?</p>
+                </div>
+                <div class="services-cards">
+                    <div class="row row-cols-1 row-cols-md-2 g-4 service-row">
+                        <div class="col service-col">
+                            <a href="{% url 'colleges' %}" style="text-decoration: none; color: initial;">
+                                <div class="card service-card">
+                                    <img src="{% static '/assets/images/Colleges.svg' %}" class="card-img-top"
+                                        alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Colleges</h5>
+                                        <p class="card-text">Get information about college cutoff ranks, placement
+                                            details, infrastructure and many more, which will help you to choose the
+                                            best college for you as per your needs.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col service-col">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                style="text-decoration: none; color: initial;">
+                                <div class="card service-card">
+                                    <img src="{% static '/assets/images/Chat.svg' %}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Counselling</h5>
+                                        <p class="card-text">Register yourself with CollegeVerse and get Best-in-Class
+                                            Counseling services and get a chance to be enrolled in your favorite college
+                                            as per your rank in various competitive exams.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col service-col">
+                            <a href="{% url 'college-prediction' %}" style="text-decoration: none; color: initial;">
+                                <div class="card service-card">
+                                    <img src="{% static '/assets/images/notes.svg' %}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">College Predictor</h5>
+                                        <p class="card-text">Get a list of colleges as per your rank in the respective
+                                            competitive exams based on your category and you will be allotted a
+                                            counselor who will guide you throughout the process.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col service-col">
+                            <a href="{% url 'test-series' %}" style="text-decoration: none; color: initial;">
+                                <div class="card service-card">
+                                    <img src="{% static '/assets/images/notes.svg' %}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Test Series</h5>
+                                        <p class="card-text">This provides an examination environment, which helps you
+                                            to make good and effective strategies for the Final Examination.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% comment %}
+            <!----------------- App Section  -------------------> {% endcomment %}
+
+            <div class="app-section">
+                <div class="app-section-content">
+                    <div class="app-text-content">
+                        <div class="app-heading">
+                            <p class="app-head">Download the CollegeVerse app from Playstore</p>
+                        </div>
+                        <div class="app-content">
+                            <p class="app-desc">We are very soon comming up with our android application - CollegeVerse.
+                                We will provide the same services like College Details, Chapterwise Notes, Mind Maps,
+                                Test Series, College Predictor and many more. Stay tuned with us for latest updates !
+                            </p>
+                        </div>
+                        <div class="app-button">
+                            <button type="button" class="download-btn">COMMING SOON</button>
+                        </div>
+                    </div>
+                    <div class="mobile-image">
+                        <img class="new-img" src="{% static '/assets/images/phone-img.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+
+            {% comment %}
+            <!------------------- Connect Section ---------------> {% endcomment %}
+
+            <div class="connect-section">
+                <div class="connect-content">
+                    <div class="connect-text">
+                        <p>Connect with us on different platform</p>
+                    </div>
+                    <div class="connect-icons">
+                        <a href="https://www.youtube.com/c/ApniAcademy01"><img class="icon" id="yt-icon"
+                                src="{% static '/assets/images/youtube-icon.svg' %}" alt=""></a>
+                        <a href="https://www.instagram.com/apni.academy/"><img class="icon" id="instaa-icon"
+                                src="{% static '/assets/images/instagram-icon.svg' %}" alt=""></a>
+                        <a href="https://www.linkedin.com/company/apniacademy/"><img class="icon" id="linkedin-icon"
+                                src="{% static '/assets/images/linkedin-icon.svg' %}" alt=""></a>
+                    </div>
+                </div>
+            </div>
+
+            <!----------------- Contact Us Section -------------->
+
+            <div class="contact-section">
+                <div class="contact-content">
+                    <div class="contact-heading">
+                        <p>Get In Touch</p>
+                    </div>
+                    <form action="{% url 'query' %}" class="git-form" method="GET">
+                        <input type="hidden" name="type" value="get_in_touch">
+                        <label for="name" class="form-field">Enter Your Name : </label><br>
+                        <input type="text" class="form-input" name="name" id="full-name" ><br>
+                        <label for="email" class="form-field">Email Id : </label><br>
+                        <input type="text" class="form-input" name="email" id="email" ><br>
+                        <label for="ph-number" class="form-field">Phone Number : </label><br>
+                        <input type="text" class="form-input" name="ph-number" id="phone-number" ><br>
+                        <label for="wa-number" class="form-field">Whatsapp Number : </label><br>
+                        <input type="text" class="form-input" name="wa-number" id="whatsapp-number" ><br>
+                        <label for="state" class="form-field">State : </label><br>
+                        <select name="state" class="form-input" id="state" >
+                            <option value="">---Select---</option>
+                            {% for state in states %}
+                            <option value="{{state.id}}">{{state.state_name}}</option>
+                            {% endfor %}
+                        </select><br>
+                        <label for="message" class="form-field">Message</label><br>
+                        <textarea name="message" class="form-input" id="message" ></textarea>
+                        <br>
+                        <div class="tnc">
+                            <input type="checkbox" class="tnc-radio" >
+                            <p style="margin: 0;">I agree all the <a href="{% url 'legal' %}?q=tnc">Terms &
+                                    Conditions</a>, <a href="{% url 'legal' %}?q=policy">Privacy Policy</a> & <a
+                                    href="{% url 'legal' %}?q=refund_policy">Refund Policy</a>
+                            </p>
+                        </div>
+                        <div class="submit-button d-flex justify-content-center">
+                            <button type="submit" class="submit-btn" disabled id="query_btn">Submit</button>
+                        </div>
+                        <div class="mytoast" style="display: none;">
+                            <p class="myspanConationer  alert alert-primary text-center"></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        {% comment %}
+        <!-------------------- Footer Section ---------------> {% endcomment %}
+        {% include "includes/footer.html" %}
+
+
+        <script>
+            let tnc_btn = document.querySelector(".tnc-radio");
+            tnc_btn.addEventListener('click', function () {
+                if (this.checked) {
+                    document.querySelector("#query_btn").disabled = false;
+                }
+                else {
+                    document.querySelector("#query_btn").disabled = true;
+                }
+            })
+        </script>
+        <script>
+            {% if not request.user.is_authenticated %}
+            jQuery(document).ready(function ($) {
+
+                // jQuery code is in here
+                jQuery.noConflict();
+                $('#LoginModal').modal('show');
+
+
+
+            });
+            {% endif %}
+        </script>
+
+        <!-- Query form validation. -->
+        <script>
+            let mytoast = document.querySelector(".mytoast");
+            let my_form = document.querySelector(".git-form");
+            let submitBtn = document.querySelector(".submit-btn");
+
+            let myspanConationer = document.querySelector(".myspanConationer");
+            submitBtn.addEventListener('click', function (e) {
+                const email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                const mobile_regex = /^[6-9]\d{9}$/gi;
+                const whatsapp_regex = /^[6-9]\d{9}$/gi;
+                e.preventDefault();
+                    // checking if any fieled is empty
+                let name = my_form.elements.name.value;
+                let email = my_form.elements.email.value;
+                let phone_number = document.querySelector("#phone-number").value;
+                phone_number = phone_number.replace("+91", "")
+                let whatsapp_number = document.querySelector("#whatsapp-number").value;
+                whatsapp_number = whatsapp_number.replace("+91", "")
+                let state = my_form.elements.state.value;
+                let message = my_form.elements.message.value
+             
+
+                if (!name || !email || !phone_number || !whatsapp_number || !state || !message) {
+                    mytoast.style.display = "block";
+                    myspanConationer.innerHTML = "All fields are required."
+                    
+                }
+                else if (!mobile_regex.test(phone_number)){
+                     mytoast.style.display = "block";
+                    myspanConationer.innerHTML = "Enter a valid mobile number."
+                }
+                else if (!whatsapp_regex.test(whatsapp_number)){
+                    mytoast.style.display = "block";
+                    myspanConationer.innerHTML = "Enter a valid whatsapp number."   
+                }
+                else if (!email_regex.test(email)){
+                    mytoast.style.display = "block";
+                    myspanConationer.innerHTML = "Enter a valid email address."     
+                }
+                else{
+                    my_form.submit();
+                }
+            })
+        </script>
+
+
+
+    </div>
+</body>
+
+</html>

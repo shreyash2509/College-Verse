@@ -1,0 +1,303 @@
+{% load static %}
+<!---------------- Navbar ------------------>
+<nav class="primary-navbar">
+  <div class="nav-container">
+    <div class="left-nav">
+      <a href="{% url 'home' %}"
+        ><img
+          class="nav-logo"
+          src="{% static '/assets/images/cvlogo.svg' %}"
+          alt=""
+      /></a>
+    </div>
+    <div class="center-nav">
+      <ul class="center-nav-list">
+        <li class="nav-home"><a href="{% url 'home' %}">Home</a></li>
+        <li class="nav-colleges">
+          <a href="{% url 'colleges' %}">Colleges</a>
+        </li>
+        <li class="nav-counseling">
+          <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            >Counseling</a
+          >
+        </li>
+        <div class="dropdown">
+          <li class="nav-notes"><a href="">Notes</a></li>
+          <div class="dropdown-content">
+            <a href="{% url 'notes' %}?class=11">Class XI</a>
+            <a href="{% url 'notes' %}?class=12">Class XII</a>
+            <a href="#">Previous Year Question Papers</a>
+          </div>
+        </div>
+        <li class="nav-test"><a href="">Test Series</a></li>
+        <li class="nav-about"><a href="">About Us</a></li>
+      </ul>
+    </div>
+
+    <div class="right-nav">
+      {% if not request.user.is_authenticated %}
+      <ul class="right-nav-list">
+        <li class="nav-login">
+          <button
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#LoginModal"
+          >
+            Login
+          </button>
+        </li>
+        <li class="nav-signup">
+          <button
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#SignupModal"
+          >
+            Sign Up
+          </button>
+        </li>
+      </ul>
+      {% else %}
+      <ul class="right-nav-list">
+        <li class="user-name">
+          <a href="{% url 'profile' %}"
+            >Hii, {{request.user.name}}!<img
+              src="{% static '/assets/images/person--circle.svg' %}"
+              alt=""
+              class="user-img"
+          /></a>
+        </li>
+        <li class="nav-login">
+          <a href="{% url 'logout' %}" class="btn btn-outline-primary"
+            >Logout</a
+          >
+        </li>
+      </ul>
+
+      {% endif %}
+    </div>
+  </div>
+</nav>
+
+<!--Login Modal -->
+<div
+  class="modal fade"
+  id="LoginModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered login-modal">
+    <div class="modal-content login-modal-content">
+      <div class="modal-header login-modal-header">
+        <div class="alert alert-success" role="alert">
+          Let's learn, share & inspire each other with our passion for computer
+          engineering. Sign up now 🤘🏼
+        </div>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body login-modal-body">
+        <div class="login-signup">
+          <p class="login-title">Login Here!</p>
+          <p class="signup-msg">
+            Don't have an account yet?
+            <a
+              data-bs-toggle="modal"
+              data-bs-target="#SignupModal"
+              style="cursor: pointer; text-decoration: underline; color: blue"
+              >Create one for free !</a
+            >
+          </p>
+        </div>
+        <div class="form-img">
+          <div class="login-form">
+            <form action="{% url 'login' %}" method="POST">
+              {% csrf_token %}
+              <input
+                type="text"
+                placeholder="E-mail"
+                class="input-login"
+                name="email"
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                class="input-login"
+                name="password"
+              />
+              <div class="login-modal-buttons">
+                <button type="submit" class="login-btn">Login</button>
+                <button type="button" class="fb-btn">
+                  <img
+                    src="{% static '/assets/images/facebook.svg' %}"
+                    alt=""
+                  />
+                  Login with Facebook
+                </button>
+                <button type="button" class="google-btn">
+                  <img src="{% static '/assets/images/google.svg' %}" alt="" />
+                  Login with Google
+                </button>
+                <p class="fgt-pw">Forgot Password?</p>
+              </div>
+            </form>
+          </div>
+          <div class="login-modal-img">
+            <img src="{% static '/assets/images/login-modal.svg' %}" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Signup Modal -->
+<div
+  class="modal fade"
+  id="SignupModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered login-modal">
+    <div class="modal-content login-modal-content">
+      <div class="modal-header login-modal-header">
+        <div class="alert alert-success" role="alert">
+          Let's learn, share & inspire each other with our passion for computer
+          engineering. Sign up now 🤘🏼
+        </div>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body login-modal-body">
+        <div class="login-signup">
+          <p class="login-title">Create your Account</p>
+          <p class="signup-msg">
+            Already have an account?
+            <a
+              data-bs-toggle="modal"
+              data-bs-target="#LoginModal"
+              style="cursor: pointer; text-decoration: underline; color: blue"
+              >Login Here!</a
+            >
+          </p>
+        </div>
+        <div class="form-img">
+          <div class="login-form">
+            <form action="{% url 'signup' %}" method="post">
+              {% csrf_token %}
+              <div class="first-last-name">
+                <input
+                  type="text"
+                  placeholder="name"
+                  class="input-login"
+                  name="name"
+                />
+              </div>
+              <input
+                type="text"
+                placeholder="Mobile Number"
+                class="input-login"
+                name="mobile_number"
+              />
+              <input
+                type="text"
+                placeholder="E-mail"
+                class="input-login"
+                name="email"
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                class="input-login"
+                name="password"
+              />
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                class="input-login"
+                name="confirm_password"
+              />
+              <div class="login-modal-buttons">
+                <button type="submit" class="login-btn">SignUp</button>
+                <button type="button" class="fb-btn">
+                  <img
+                    src="{% static '/assets/images/facebook.svg' %}"
+                    alt=""
+                  />
+                  SignUp with Facebook
+                </button>
+                <button type="button" class="google-btn">
+                  <img src="{% static '/assets/images/google.svg' %}" alt="" />
+                  SignUp with Google
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="login-modal-img">
+            <img src="{% static '/assets/images/login-modal.svg' %}" alt="" />
+            <p class="tnc-txt">
+              *By signing up, you agree to our Terms & conditions, Privacy
+              policy
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!----------------- Counseling Modal ---------------->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-dialog-counseling">
+    <div class="modal-content modal-content-counseling">
+      <div class="modal-header modal-header-counseling">
+        <h5 class="modal-title modal-title-counseling" id="exampleModalLabel">
+          Confused which college to choose?
+        </h5>
+      </div>
+      <div class="modal-body modal-body-counseling">
+        <div class="stream-btn">
+          <div class="engg">
+            <a href="{% url 'ecounselling' %}">
+              <button type="button" class="engg-btn">
+                <img src="{% static '/assets/images/engg.png' %}" alt="" />
+                <p class="engg-text">Engineering</p>
+              </button>
+            </a>
+          </div>
+          <div class="medical">
+            <a href="{% url 'mcounselling' %}">
+              <button type="button" class="medical-btn">
+                <img src="{% static '/assets/images/medical.png' %}" alt="" />
+                <p class="medical-text">Medical</p>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer modal-footer-counseling">
+        <p class="counseling-modal-details">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
+          itaque at perferendis consequuntur ea cumque, quae voluptates animi
+          nisi similique, iure hic asperiores? Delectus impedit culpa maxime
+          laborum, cumque cupiditate.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+.contact-header{
+  width: 700px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0 2rem 0;
+}
+
+.whatsapp{
+  display: flex;
+  justify-content: space-between;
+  background: #EFF2FC;
+  padding: 1rem 2rem 1rem 2rem;
+  border-radius: 20px;
+}
+
+.address{
+  /* display: flex;
+  justify-content: space-between;
+  background: #EFF2FC;
+  padding: 1rem 2rem 1rem 2rem;
+  border-radius: 20px; */
+  width: 700px;
+}
+
+.wp-img img{
+  width: 32px;
+  padding: 0.5rem 0;
+}
+
+.wp-cont{
+  padding: 0 1rem 0 2rem;
+}
+
+.cont-head{
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.cont-p{
+  margin: 0.3rem;
+  font-weight: 600;
+}
+
+.email{
+  display: flex;
+  justify-content: space-between;
+  background: #EFF2FC;
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.email-img img{
+  width: 32px;
+  padding: 0.5rem 0;
+}
+
+.email-cont{
+  padding: 0 0.5rem 0 2rem;
+}
+
+@media screen and (max-width: 750px){
+  .contact-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+  }
+  .whatsapp{
+    width: 100%;
+    margin: 1rem 0 3rem 0;
+  }
+  .email{
+    width: 100%;
+  }
+  .address{
+    width: 360px;
+  }
+}

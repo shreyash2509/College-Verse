@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Abroad</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" href="{% static '/assets/images/cvlogo.jpeg' %}" />
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <!-- css -->
+  <link rel="stylesheet" href="{% static '/css/med_style.css' %}" />
+  <link rel="stylesheet" href="{% static '/css/style.css' %}" />
+  <link rel="stylesheet" href="{% static '/css/engg_style.css' %}" />
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet" />
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QSPRWC08J8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QSPRWC08J8');
+</script>
+
+<body style="overflow-x: hidden;">
+  <div class="main-container">
+    <div class="white_ellipse">
+      <!---------------- Navbar ------------------>
+      {% include "includes/navbar.html" %}
+
+
+      {% comment %}
+      <!-----------------------front page---------------------------> {% endcomment %}
+
+      <div class="center_med" style="padding-top: 10%; background-color: white;">
+        <!-- <a href="http://www.uentree.com/mbbs-abroad/" target="_blank"><img src="{% static '/assets/images/entree.png' %}" height="100px" width="100px"></a> -->
+        <img src="{% static '/assets/images/entree.png' %}" height="200px" width="200px" style="margin-bottom: 2rem;">
+        <p style="font-size: 64px;font-weight: 800;line-height: 80px;letter-spacing: 0.2px;">Get Best in class Education in USA's Top Universities</p>
+        <br>
+        <p style="font-size: 36px;font-weight: 600;line-height: 41px;letter-spacing: 0.2px;">Just fill in the details and our team will soon get back
+          to you.</p><br>
+        <!-- <p style="font-size: 48px;font-weight: 700;line-height: 55px;letter-spacing: 0.2px;"></span>In Association with
+          <a href="http://www.uentree.com/mbbs-abroad/" style="text-decoration: none;" target="_blank"><span style="color: #0d6efd; ">UENTREE</span></a></p> -->
+        <br />
+        <p style="font-size: 48px;font-weight: 700;line-height: 55px;letter-spacing: 0.2px;">Get the best benefits like :</p>
+        <ul>
+          <li style="font-size: 32px;font-weight: 700;line-height: 55px;letter-spacing: 0.2px; text-align: left;">Strong Asian community</li>
+          <li style="font-size: 32px;font-weight: 700;line-height: 55px;letter-spacing: 0.2px; text-align: left;">World-class education</li>
+          <li style="font-size: 32px;font-weight: 700;line-height: 55px;letter-spacing: 0.2px; text-align: left;"> Variety of research centric science and technology courses</li>
+          <li style="font-size: 32px;font-weight: 700;line-height: 55px;letter-spacing: 0.2px; text-align: left;">Large number of scholarships and fellowships offered by the American government and Institutions</li>
+          <li style="font-size: 32px;font-weight: 700;line-height: 55px;letter-spacing: 0.2px; text-align: left;">Part-time job and full-time internship opportunities while studying covering living expanses and 50% of tuition fee.</li>
+          <li style="font-size: 32px;font-weight: 700;line-height: 55px;letter-spacing: 0.2px; text-align: left;">An American degree is regarded highly around the world.</li>
+        </ul>
+
+        <div class="cta-button">
+          <button type="button" style="border-radius: 1rem;padding: 0.5rem 4rem;" class="btn btn-primary btn-lg"
+            id="book_a_call_btn">Book a Call</button>
+          <a href="https://chat.whatsapp.com/Lp1hD1wgQcC1yu0cCr77L6"><button type="button" style="border-radius: 1rem;" class="btn btn-outline-primary btn-lg"
+              id="join_whatsapp_btn">Join our Whatsapp Group</button></a>
+        </div>
+      </div>
+      <!-- -----------------Book a call----------------------- -->
+      <div class="contact-section d-none">
+        <br><br>
+        <div class="contact-content">
+          <form action="{% url 'query' %}" method="GET" class="med_call_form">
+            <input type="hidden" name="type" value="medical_call">
+            <label for="name" class="form-field">Enter Your Name : </label><br>
+            <input type="text" class="form-input" name="name" id="full-name" ><br>
+            <label for="ph-number" class="form-field">Phone Number : </label><br>
+            <input type="text" class="form-input" name="ph-number" id="phone-number" ><br>
+            <label for="wa-number" class="form-field">Whatsapp Number : </label><br>
+            <input type="text" class="form-input" name="wa-number" id="whatsapp-number" ><br><br>
+            <div class="cta-button" style="padding-left: 0;">
+              <button type="submit" style="border-radius: 1rem;padding: 0.5rem 4rem;"
+                  class="btn btn-primary btn-lg submit-btn">Done</button>
+              <a href="https://chat.whatsapp.com/Lp1hD1wgQcC1yu0cCr77L6"><button type="button" style="border-radius: 1rem;" class="btn btn-outline-primary btn-lg">Join
+                  our
+                  Whatsapp Group</button></a>
+            </div>
+            <div class="mytoast" style="display: none;">
+              <p class="myspanConationer  alert alert-primary text-center"></p>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+    <svg height="41rem" width="100%">
+      <ellipse cx="44rem" cy="12rem" rx="87rem" ry="24rem" style="fill: #0083ff"></ellipse>
+      <ellipse cx="50rem" cy="9rem" rx="84rem" ry="24rem" style="fill: white"></ellipse>
+    </svg>
+    <!--frequently asked questions-->
+    <div class="center_med">
+      <div class="out">
+        <p style="font-weight: 700;line-height: 82px;letter-spacing: 0.2px;">Frequently Asked Questions
+        </p><br>
+        <hr>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <!--q1-->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="f_q1" style="background-color: #e0e5f5;">
+              <button class="accordion-button collapsed acc_s"
+                style="background-color: #e0e5f5;width: 80.43%;margin:auto;padding-top: 1.5rem;" type="button"
+                data-bs-toggle="collapse" data-bs-target="#f_a1" aria-expanded="false"
+                aria-controls="flush-collapseOne">
+                Why is Career Counselling important for Students ?
+              </button>
+            </h2>
+            <div id="f_a1" style=" background-color: #e0e5f5;" class="accordion-collapse collapse"
+              aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body acc_a" style="    background-color: #e0e5f5;
+                  width: 80.43%;
+                  margin: auto;text-align: start;">
+                  Selecting right college is one of the toughest choices for every student after passing 12th standard. In such a scenario, counselling can be very helpful in terms of stream selection, career guidance, and admission norms. Counseling helps the students to gain specialized knowledge about the available career options. It helps the student to identify their strengths, needs, chances and interests and match it to the top universities norms where they hold maximum chances of admission.
+                </div>
+            </div>
+          </div>
+          <!--q2-->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="f_q2" style="
+                background-color: #e0e5f5;">
+              <button class="accordion-button collapsed acc_s" style="
+                  background-color: #e0e5f5;
+                  width: 80.43%;
+                  margin:auto;
+                  padding-top: 1.5rem;" type="button" data-bs-toggle="collapse" data-bs-target="#f_a2"
+                aria-expanded="false" aria-controls="flush-collapseOne">
+                How CollegeVerse helps you in Counselling ?
+              </button>
+            </h2>
+            <div id="f_a2" class="accordion-collapse collapse" aria-labelledby="f_q2"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body acc_a" style="background-color: #e0e5f5;">
+                CollegeVerse is here to provide you counselling services for several Engineering and Medical Universities. By joining our Personalised Helpdesk for various examinations, you will be assigned a Counsellor with whom you can discuss all your doubts regarding college admission or exam preparations.
+              </div>
+            </div>
+          </div>
+          <!--q3-->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="f_q3" style="
+                background-color: #e0e5f5;">
+              <button class="accordion-button collapsed acc_s" style="
+                  background-color: #e0e5f5;
+                  width: 80.43%;
+                  margin:auto;
+                  padding-top: 1.5rem;" type="button" data-bs-toggle="collapse" data-bs-target="#f_a3"
+                aria-expanded="false" aria-controls="flush-collapseOne">
+                Why education in USA is better ?
+              </button>
+            </h2>
+            <div id="f_a3" class="accordion-collapse collapse" aria-labelledby="f_q3"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body acc_a" style="background-color: #e0e5f5;">
+                Many research reports have revealed that the MBA and an MS in Biotechnology, Computers, and Electronics are amongst the most popular courses in the USA.
+                UK is losing its popularity among Indian students: due to restriction in post-study visa and India's refusal to treat UK's one-year master's degree courses on par with two-year post-graduate degrees back home.
+              </div>
+            </div>
+          </div>
+          <!--q4-->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="f_q4" style="
+                background-color: #e0e5f5;">
+              <button class="accordion-button collapsed acc_s" style="
+                  background-color: #e0e5f5;
+                  width: 80.43%;
+                  margin:auto;
+                  padding-top: 1.5rem;" type="button" data-bs-toggle="collapse" data-bs-target="#f_a4"
+                aria-expanded="false" aria-controls="flush-collapseOne">
+                What is CollegeVerse's College Predictor?
+              </button>
+            </h2>
+            <div id="f_a4" class="accordion-collapse collapse" aria-labelledby="f_q4"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body acc_a" style="background-color: #e0e5f5;">
+                CollegeVerse is here with a latest Feature - College Predictor. <br> Using this feature you can get a list of colleges for which you are eligible as per you rank and category. This predictor is far more accurate than other predictors in the market as it is solely developed by our skilled consultants with years of experience.
+              </div>
+            </div>
+          </div>
+          <!--q5-->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="f_q5" style="
+                background-color: #e0e5f5;">
+              <button class="accordion-button collapsed acc_s" style="
+                  background-color: #e0e5f5;
+                  width: 80.43%;
+                  margin:auto;
+                  padding-top: 1.5rem;" type="button" data-bs-toggle="collapse" data-bs-target="#f_a5"
+                aria-expanded="false" aria-controls="flush-collapseOne">
+                How can you Contact Us ?
+              </button>
+            </h2>
+            <div id="f_a5" class="accordion-collapse collapse" aria-labelledby="f_q5"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body acc_a" style="background-color: #e0e5f5;">
+                You can find us on various social media platforms like :- <br>
+                Youtube - @<a href="https://www.youtube.com/c/ApniAcademy01">Apni Academy</a><br>
+                Instagram - @<a href="https://www.instagram.com/apni.academy/">apni.academy</a><br><br>
+                For more details, you may contact us via :- <br>
+                E-mail - apni.academy01@gmail.com <br>
+                Mobile - 8986357601 / 7632929451
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JavaScripts -->
+      <script>
+        let book_a_call_btn = document.querySelector("#book_a_call_btn");
+        book_a_call_btn.addEventListener('click', () => {
+          document.querySelector("#join_whatsapp_btn").remove();
+          document.querySelector(".contact-section").classList.remove('d-none');
+          book_a_call_btn.remove();
+        })
+      </script>
+    </div>
+  </div>
+  <!--footer-->
+  {% include "includes/footer.html" %}
+
+  <script>
+    let mytoast = document.querySelector(".mytoast");
+    let my_form = document.querySelector(".med_call_form");
+    let submitBtn = document.querySelector(".submit-btn");
+
+    let myspanConationer = document.querySelector(".myspanConationer");
+    submitBtn.addEventListener('click', function (e) {
+      const mobile_regex = /^[6-9]\d{9}$/gi;
+      const whatsapp_regex = /^[6-9]\d{9}$/gi;
+      e.preventDefault();
+      // checking if any fieled is empty
+      let name = my_form.elements.name.value;
+      let phone_number = document.querySelector("#phone-number").value;
+      phone_number = phone_number.replace("+91", "")
+      let whatsapp_number = document.querySelector("#whatsapp-number").value;
+      whatsapp_number = whatsapp_number.replace("+91", "")
+  
+
+
+      if (!name || !phone_number || !whatsapp_number) {
+        mytoast.style.display = "block";
+        myspanConationer.innerHTML = "All fields are required."
+
+      }
+      else if (!mobile_regex.test(phone_number)) {
+        mytoast.style.display = "block";
+        myspanConationer.innerHTML = "Enter a valid mobile number."
+      }
+      else if (!whatsapp_regex.test(whatsapp_number)) {
+        mytoast.style.display = "block";
+        myspanConationer.innerHTML = "Enter a valid whatsapp number."
+      }
+      else {
+        my_form.submit();
+      }
+    })
+  </script>
+</body>
+
+</html>

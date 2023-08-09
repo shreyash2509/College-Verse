@@ -1,0 +1,176 @@
+.payment-section{
+  margin: 4rem 10rem;
+}
+
+.payment-head{
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.main-payment{
+  padding: 3rem 8rem 2rem 4rem;
+  background: #EFF2FC;
+  border-radius: 20px;
+}
+
+.payment-details{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.pay-left-head p, .pay-right-head p{
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.pay-left-item, .pay-right-amt{
+  padding: 1rem 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #717171;
+}
+
+.pay-right-amt{
+  text-align: right;
+}
+
+.coupon-code{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coupon-form{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.coupon-code p{
+  margin: 0.3rem 1rem;
+  color: #717171;
+  font-weight: 600;
+  text-align: center;
+}
+
+.coupon-input{
+  width: 140px;
+}
+
+.coupon-input{
+  border: 2px solid #0083FF;
+  border-radius: 8px;
+  padding: 0 1rem;
+}
+
+.coupon-input::placeholder{
+  text-align: center;
+  opacity: 0.8;
+}
+
+.apply-btn{
+  margin: 0 1rem;
+}
+
+.apply-btn button{
+  padding: 0.2rem 0.7rem;
+  background: #0083FF;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  text-align: center;
+}
+
+.line{
+  margin: 2rem 0;
+}
+
+.total-section{
+  margin: 1.5rem 0;
+  background: #EFF2FC;
+  border-radius: 20px;
+  padding: 3rem 8rem 0.5rem 8rem;
+}
+
+.total-head{
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-head p{
+  margin: 0%;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.total-price p{
+  text-align: center;
+}
+
+.pay-btnm,.razorpay-payment-button{
+  margin: 1.5rem 0 0;
+  width: 140px;
+  height: 45px;
+  border-radius: 40px;
+  border: 3px solid #0083FF;
+  background: white;
+  font-size: large;
+  font-weight: 700;
+}
+
+.pay-btn:hover{
+  background: #0083FF;
+  color: white;
+  border: none;
+}
+
+@media screen and (max-width: 1150px) {
+  .payment-head{
+    font-size: 28px;
+  }
+  .pay-left-head p, .pay-right-head p{
+    font-size: 20px;
+  }
+  .pay-left-item p, .pay-right-amt p{
+    font-size: 18px;
+  }
+  .coupon-code p{
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .payment-section{
+    margin: 4rem 5rem;
+  }
+  .total-section{
+    padding: 3rem 4rem;
+  }
+  .main-payment{
+    padding: 3rem 2rem 2rem 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .payment-section{
+    margin: 4rem 1rem;
+  }
+  .total-section{
+    padding: 3rem 2rem;
+  }
+  .payment-head{
+    font-size: 22px;
+  }
+  .pay-left-head p, .pay-right-head p{
+    font-size: 18px;
+  }
+  .pay-left-item p, .pay-right-amt p{
+    font-size: 16px;
+  }
+  .total-head p{
+    font-size: 20px;
+  }
+  .total-price p{
+    font-size: 18px;
+  }
+}

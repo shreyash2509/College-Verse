@@ -1,0 +1,75 @@
+body{
+  background: #e0e5f5;
+}
+.white_ellipse{
+  background-color: white;
+}
+
+.center_med{
+  display: flexbox;
+  align-items: center;
+  text-align: center;
+  /* position: absolute; */
+  /* position: fixed; */
+  /* margin-top: 20%; */
+  flex-direction: column;
+  padding: 0 8rem;
+}
+
+hr{
+  border: 0.5px solid #717171;
+  width: 80.43%;
+  margin: 1rem auto;
+
+}
+
+
+.acc_s{
+  font-weight: 600;
+    font-size: 36px;
+    line-height: 115%;
+}
+
+.acc_a{
+  font-size: 24px;
+    line-height: 30px;
+    text-align: start;
+    /* margin-left: 143px; */
+    width: 80.43%;
+    margin: auto;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #212529!important;
+}
+
+.accordion-body {
+  /* padding: 1rem 1.25rem; */
+  padding: 2rem 1.25rem 3rem 1.25rem!important;
+}
+.accordion-button:focus {
+  box-shadow: 0 0 0 0 rgb(0 0 0 / 25%)!important;
+}
+.accordion-button:not(.collapsed) {
+  box-shadow: inset 0 0px 0 rgb(0 0 0 / 13%)!important;
+}
+.accordion-flush .accordion-collapse {
+  background: #e0e5f5;
+}
+
+.out{
+  padding: 10rem 4rem 50rem 4rem;
+}
+
+
+
+.sc{
+  font-weight: 800;
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .center_med{
+    padding: 0 1rem;
+  }
+}

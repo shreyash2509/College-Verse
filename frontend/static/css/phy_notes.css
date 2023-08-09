@@ -1,0 +1,144 @@
+.notes-heading{
+  text-align: center;
+  padding: 5rem 0 0 0;
+  font-size: 56px;
+  font-weight: 700;
+}
+
+/* Chapter List */
+
+.chapter-list{
+  max-width: 900px;
+  margin: 4rem auto;
+  padding-bottom: 5rem;
+}
+
+.acc-text{
+  font-size: 28px;
+  margin: initial;
+  font-weight: 600;
+}
+
+.accordion-item{
+  border: 6px solid #EFF2FC;
+  border-radius: 24px;
+  margin: 0 0 2rem 0;
+}
+
+.accordion-button:not(.collapsed){
+  color: #081131;
+  background: white;
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0 rgb(0 0 0 / 25%)!important;
+}
+
+.accordion-body{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem 0;
+}
+
+.acc-btn button{
+  width: 250px;
+  height: 60px;
+  background: #EFF2FC;
+  border-radius: 14px;
+  border: none;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.acc-btn button:hover{
+  background: #0083FF;
+  color: white;
+}
+
+/*mock test*/
+
+.m-test{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10vw 0;
+}
+
+.m_sub{
+background: #EFF2FC;
+    border-radius: 26px;
+    width: 70vw;
+    height: 10vh;
+    /* margin-top: 30px; */
+    transition: 0.3s;
+    position: relative;
+    display: flex;
+    min-width: 0;
+    word-wrap: break-word;
+    border: 0px solid rgba(0,0,0,.125);
+    border-radius: 24px;
+    align-items: center;
+    flex-direction: row;
+    margin: 2px;
+}
+
+
+.m-title_sub{
+  text-align: center;
+  font-weight: 600;
+font-size: 48px;
+line-height: 80px;
+}
+
+.m-body_sub{
+  background: white;
+  height: 8vh;
+  border-radius: 24px;
+  /* width: 47vw; */
+  display: flex;
+  flex: 1 1 auto;
+  /* padding: 1rem 1rem 1rem 2rem; */
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0.5vw;
+  padding: 0 1vw;
+}
+
+.m-btn button{
+  width: 16.5vw;
+  height: 60px;
+  background: #0083FF;
+  border-radius: 14px;
+  border: none;
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+  display: none;
+}
+
+.m_sub:hover .m-body_sub{
+  background: transparent;
+} 
+.m_sub:hover .m-btn button{
+  display: block;
+} 
+
+/* .m-btn button:hover{
+  background: #0083FF;
+  color: white;
+} */
+
+
+/* 
+m-body_sub {
+  background: white;
+  display: flex;
+  flex: 1 1 auto;
+  height: 8vh;
+  border-radius: 24px;
+  padding: 0 47vw 0 1rem;
+  margin: 1rem 11rem 1rem 1rem;
+  /* padding: 1rem 11rem 1rem 2rem; */
+  /* justify-content: space-between; */

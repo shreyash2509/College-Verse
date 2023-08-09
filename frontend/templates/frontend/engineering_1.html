@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Engineering</title>
+    <!-- favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static '/assets/images/cvlogo.jpeg' %}"
+    />
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <!-- css -->
+    <link rel="stylesheet" href="{% static '/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/engg_style.css' %}" />
+    <!-- js -->
+    <script src="{% static '/js/main.js' %}"></script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QSPRWC08J8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QSPRWC08J8');
+</script>
+
+  <body>
+    <div class="main-container">
+      <div class="white_ellipse">
+        <!---------------- Navbar ------------------>
+        {% include "includes/navbar.html" %}
+
+        <!------------------- Engineering Counseling Plans ---------------->
+
+        <div class="engg-counseling">
+          <div class="engg-heading bac-col">
+            <p><span class="service-blue">CollegeVerse</span> Premium Plans</p>
+          </div>
+          <div class="engg-para bac-col">
+            <p>Choose the right option for you.</p>
+          </div>
+
+          {% comment %}
+          <!----------------- Engineering Plan Cards ------------------->
+          {% endcomment %}
+<div class="bac-col">
+          <div class="row row-cols-1 row-cols-md-3 g-4 plans-row">
+            {% for plan in plans  %}
+            <div class="col plans-col">
+              <div class="card h-100 plans-card">
+                <div class="card-body">
+                  <h5 class="title-name">{{plan.plan_name}}</h5>
+                  <h5 class="title-price">₹{{plan.price}}</h5>
+                  <p class="card-text">
+                   {{plan.heading}}
+                  </p>
+                  <div class="card-perks">
+                    <div class="card-perks-item">
+                      <img
+                        src="{% static '/assets/images/tickmark.svg' %}"
+                        alt=""
+                      />
+                      <p>
+                        {{plan.desc1}}
+                      </p>
+                    </div>
+                    <div class="card-perks-item">
+                      <img
+                        src="{% static '/assets/images/tickmark.svg' %}"
+                        alt=""
+                      />
+                      <p>
+                        {{plan.desc2}}
+                      </p>
+                    </div>
+                    <div class="card-perks-item">
+                      <img
+                        src="{% static '/assets/images/tickmark.svg' %}"
+                        alt=""
+                      />
+                      <p>
+                        {{plan.desc3}}
+                      </p>
+                    </div>
+                    <div class="card-perks-item">
+                      <img
+                        src="{% static '/assets/images/tickmark.svg' %}"
+                        alt=""
+                      />
+                      <p>
+                        {{plan.desc4}}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card-button">
+                  
+                   {% if plan in bought_plans %}
+                    <form action="{% url 'college-prediction' %}" method="get">
+                      <button type="submit" class="card-btn">Predict your college</button>
+                    </form>
+                    {% else %}
+                    <form action="" method="post">
+                      {% csrf_token %}
+                      <input type="hidden" value="{{plan.id}}" name="plan_id" />
+                      <button type="submit" class="card-btn">Register</button>
+                    </form>
+                    {% endif %}
+                 
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            
+            
+          </div>
+
+          
+
+          
+        </div>
+        <svg height="41rem" width="100%">
+          <ellipse
+            cx="44rem"
+            cy="12rem"
+            rx="87rem"
+            ry="24rem"
+            style="fill: #0083ff"
+          ></ellipse>
+          <ellipse
+            cx="50rem"
+            cy="9rem"
+            rx="84rem"
+            ry="24rem"
+            style="fill: white"
+          ></ellipse>
+        </svg>
+      
+      <!--frequently asked questions-->
+      <div class="center_med">
+        <div class="out">
+          <p style="font-weight: 700; line-height: 82px; letter-spacing: 0.2px">
+            Frequently Asked Questions
+          </p>
+          <br />
+          <hr />
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <!--q1-->
+            <div class="accordion-item">
+              <h2
+                class="accordion-header"
+                id="f_q1"
+                style="background-color: #e0e5f5"
+              >
+                <button
+                  class="accordion-button collapsed acc_s"
+                  style="
+                    background-color: #e0e5f5;
+                    width: 80.43%;
+                    margin: auto;
+                    padding-top: 1.5rem;
+                  "
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#f_a1"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseOne"
+                >
+                  Why is Career Counselling important for Students ?
+                </button>
+              </h2>
+              <div
+                id="f_a1"
+                style="background-color: #e0e5f5"
+                class="accordion-collapse collapse"
+                aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample"
+              >
+                <div
+                  class="accordion-body acc_a"
+                  style="
+                    background-color: #e0e5f5;
+                    width: 80.43%;
+                    margin: auto;
+                    text-align: start;
+                  "
+                >
+                Selecting right college is one of the toughest choices for every student after passing 12th standard. In such a scenario, counselling can be very helpful in terms of stream selection, career guidance, and admission norms. Counseling helps the students to gain specialized knowledge about the available career options. It helps the student to identify their strengths, needs, chances and interests and match it to the top universities norms where they hold maximum chances of admission.
+                </div>
+              </div>
+            </div>
+            <!--q2-->
+            <div class="accordion-item">
+              <h2
+                class="accordion-header"
+                id="f_q2"
+                style="background-color: #e0e5f5"
+              >
+                <button
+                  class="accordion-button collapsed acc_s"
+                  style="
+                    background-color: #e0e5f5;
+                    width: 80.43%;
+                    margin: auto;
+                    padding-top: 1.5rem;
+                  "
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#f_a2"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseOne"
+                >
+                  How CollegeVerse helps you in Counselling ?
+                </button>
+              </h2>
+              <div
+                id="f_a2"
+                class="accordion-collapse collapse"
+                aria-labelledby="f_q2"
+                data-bs-parent="#accordionFlushExample"
+              >
+                <div
+                  class="accordion-body acc_a"
+                  style="background-color: #e0e5f5"
+                >
+                  CollegeVerse is here to provide you counselling services for several Engineering and Medical Universities. By joining our Personalised Helpdesk for various examinations, you will be assigned a Counsellor with whom you can discuss all your doubts regarding college admission or exam preparations.
+                </div>
+              </div>
+            </div>
+            <!--q3-->
+            <div class="accordion-item">
+              <h2
+                class="accordion-header"
+                id="f_q3"
+                style="background-color: #e0e5f5"
+              >
+                <button
+                  class="accordion-button collapsed acc_s"
+                  style="
+                    background-color: #e0e5f5;
+                    width: 80.43%;
+                    margin: auto;
+                    padding-top: 1.5rem;
+                  "
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#f_a3"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseOne"
+                >
+                  For how long I am benefitted from these Plans ?
+                </button>
+              </h2>
+              <div
+                id="f_a3"
+                class="accordion-collapse collapse"
+                aria-labelledby="f_q3"
+                data-bs-parent="#accordionFlushExample"
+              >
+                <div
+                  class="accordion-body acc_a"
+                  style="background-color: #e0e5f5"
+                >
+                  Once you buy any plan(s) from CollegeVerse, we will provide you services untill you get a college of your choice and are completely satisfied with it. You may contact your assigned mentor for any discussions related to exam preparations or college selection process.
+                </div>
+              </div>
+            </div>
+            <!--q4-->
+            <div class="accordion-item">
+              <h2
+                class="accordion-header"
+                id="f_q4"
+                style="background-color: #e0e5f5"
+              >
+                <button
+                  class="accordion-button collapsed acc_s"
+                  style="
+                    background-color: #e0e5f5;
+                    width: 80.43%;
+                    margin: auto;
+                    padding-top: 1.5rem;
+                  "
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#f_a4"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseOne"
+                >
+                  What is CollegeVerse's College Predictor?
+                </button>
+              </h2>
+              <div
+                id="f_a4"
+                class="accordion-collapse collapse"
+                aria-labelledby="f_q4"
+                data-bs-parent="#accordionFlushExample"
+              >
+                <div
+                  class="accordion-body acc_a"
+                  style="background-color: #e0e5f5"
+                >
+                  CollegeVerse is here with a latest Feature - College Predictor. <br> Using this feature you can get a list of colleges for which you are eligible as per you rank and category. This predictor is far more accurate than other predictors in the market as it is solely developed by our skilled consultants with years of experience.
+                </div>
+              </div>
+            </div>
+            <!--q5-->
+            <div class="accordion-item">
+              <h2
+                class="accordion-header"
+                id="f_q5"
+                style="background-color: #e0e5f5"
+              >
+                <button
+                  class="accordion-button collapsed acc_s"
+                  style="
+                    background-color: #e0e5f5;
+                    width: 80.43%;
+                    margin: auto;
+                    padding-top: 1.5rem;
+                  "
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#f_a5"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseOne"
+                >
+                  How can you Contact Us ?
+                </button>
+              </h2>
+              <div
+                id="f_a5"
+                class="accordion-collapse collapse"
+                aria-labelledby="f_q5"
+                data-bs-parent="#accordionFlushExample"
+              >
+                <div
+                  class="accordion-body acc_a"
+                  style="background-color: #e0e5f5"
+                >
+                  You can find us on various social media platforms like :- <br>
+                  Youtube - @<a href="https://www.youtube.com/c/ApniAcademy01">Apni Academy</a><br>
+                  Instagram - @<a href="https://www.instagram.com/apni.academy/">apni.academy</a><br><br>
+                  For more details, you may contact us via :- <br>
+                  E-mail - apni.academy01@gmail.com <br>
+                  Mobile - 8986357601 / 7632929451
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--footer-->
+    {% include "includes/footer.html" %}
+  </body>
+</html>

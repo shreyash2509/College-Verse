@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mock test</title>
+    <!-- favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static '/assets/images/cvlogo.jpeg' %}"
+    />
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <!-- css -->
+    <link rel="stylesheet" href="{% static '/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/phy_notes.css' %}" />
+    <!-- js -->
+    <script src="{% static '/js/main.js' %}"></script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QSPRWC08J8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QSPRWC08J8');
+</script>
+
+  <body style="overflow-x: hidden">
+    <div class="main-container">
+      <!---------------- Navbar ------------------>
+      {% include "includes/navbar.html" %}
+    </div>
+
+    {% comment %}
+    <!----------------- Chapters --------------------->
+    {% endcomment %}
+
+    <div class="m-test">
+      {% for paper in papers %}
+      <div class="m_sub">
+        <div class="m-body_sub">
+          <div>
+            <h5 class="m-title_sub">{{paper.paper_name}}</h5>
+          </div>
+          <div class="m-btn">
+            <button class="test-btn" data-test_id="{{paper.id}}">start</button>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div>
+        <h5 class="m-title_sub">No Papers Available.</h5>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!------------------ Footer Section -------------------->
+
+    {% include "includes/footer.html" %}
+    <script>
+      for (const btn of document.querySelectorAll('.test-btn')) {
+        btn.addEventListener('click',function(){
+          let id = this.getAttribute("data-test_id");
+          window.location.href = `/test-series/${id}/`;
+          document.documentElement.requestFullscreen().catch((e)=>{
+            console.log("error occred");
+          })
+        })
+      }
+    </script>
+  </body>
+</html>
